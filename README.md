@@ -9,4 +9,4 @@ Before you run the program, make sure to change the filepath to your desired loc
     filepath = "INSERT YOUR PATH HERE"
 ```
 
-For this program, run in the terminal using python passing the URL you wish to download as an argument ex: `python HTMLDownload www.example.com`
+For this program, run in the terminal using python passing the URL you wish to download as an argument ex: `python HTMLDownload.py www.example.com`
