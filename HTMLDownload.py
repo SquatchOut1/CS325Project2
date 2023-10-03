@@ -8,7 +8,7 @@
 import argparse
 import urllib.request
 
-filepath = "C:/Users/alexw/Documents/School/cs325/CS325Project1/HTMLOutput.txt"
+filepath = "C:/Users/alexw/Documents/School/cs325/CS325Project2/HTMLOutput.txt"
 
 
 parser = argparse.ArgumentParser()
