@@ -1,3 +1,5 @@
+
+
 import os
 import argparse
 from module_1.HTMLDownload import save_raw_file
@@ -20,7 +22,12 @@ parser.add_argument(help="URL to download", dest="url", type=str)
 arg = parser.parse_args()
 url = arg.url
 
+print("Running...")
+
 save_raw_file(url, rawFileName)
+print("HTML raw file saved!")
 comments = extract_comments(rawFileName)
+print("Comments extracted!")
 output_comments(comments, processedFileName)
+print("Comments saved to file!")
 
