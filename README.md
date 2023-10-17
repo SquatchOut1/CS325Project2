@@ -1,34 +1,23 @@
-# HTMLDownload
+# Reddit Comments
 
-This is a program to download the HTML page of a URL to a txt file.
-
-## How to Use
-
-Before you run the program, make sure to change the filepath to your desired location for the output txt file.
-```python
-    filepath = "INSERT YOUR PATH HERE"
-```
-
-For this program, run in the terminal using python passing the URL you wish to download as an argument ex: `python HTMLDownload.py https://www.example.com`
-
-## Sample Output
-
-The attached HTMLOutput is a sample output using the url https://old.reddit.com/r/mtg/comments/16msc6b/finished_a_game_at_130000_and_still_won_it/
-
-# extract_comments
-
-This is a program to extract the comments from a reddit page using a txt file of html as input.
+This is a program to download the HTML page of a URL to a txt file as well as save the comments of a reddit post to a txt.
 
 ## How to Use
 
-Before you run the program, make sure to change the output filepath to your desired location for the output txt file.
+Before you run the program, you may optionally change the names of the raw and processed output file. In run.py change:
 ```python
-    outputFilePath = "INSERT YOUR PATH HERE"
+    rawFileName = 'HTMLOutput.txt'
+    processedFileName = 'comments.txt'
 ```
-Also, make sure you ran the HTMLDownload with the old.reddit link. Otherwise the comments will not be in the file and it won't work.
 
-For this program, run in the terminal using python passing the HTMLOutput.txt you wish to download as an argument ex: `python extract_comments.py HTMLOutput.txt`
+Additionally, make sure to download the environment from requirements.yaml to make sure you have the appropriate libraries.
+
+For this program, run in the terminal using python passing the reddit URL you wish to download as an argument ex: `python run.py https://old.reddit.com/r/mtg/comments/16msc6b/finished_a_game_at_130000_and_still_won_it/`
+
+Also, make sure you ran the run.py with the old.reddit link. Otherwise the comments will not be in the file and it won't work.
 
 ## Sample Output
 
-The attached comments.txt is a sample output using the url https://old.reddit.com/r/mtg/comments/16msc6b/finished_a_game_at_130000_and_still_won_it/
+The attached CS325_p3/Data/raw/HTMLOutput.txt is a sample output using the url https://old.reddit.com/r/mtg/comments/16msc6b/finished_a_game_at_130000_and_still_won_it/
+
+The attached CS325_p3/Data/processed/comments.txt is a sample output using the url https://old.reddit.com/r/mtg/comments/16msc6b/finished_a_game_at_130000_and_still_won_it/

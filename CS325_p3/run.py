@@ -1,4 +1,20 @@
 
+#####################################################################################
+# Alex Wernex                                                                       #
+# Cs325 Project 3                                                                   #
+# run.py                                                                            #
+# This is the driver for the project.                                               #
+# It runs in the terminal with the url                                              #
+# to process as an argument.                                                        #
+# First, it takes the names of the files you set                                    #
+# and creates the paths to the correct folders on your system.                      #
+# Then, it takes the URL from arg and passes to the three modules                   #
+# to save the post as a raw HTML file, extract the comments as                      #
+# data, and finally, saves those comments to a file.                                #
+#####################################################################################
+
+
+
 
 import os
 import argparse
