@@ -1,8 +1,8 @@
 
 #####################################################################################
-# Alex Wernex                                                                       #
+# Alex Wernex (and Zach Linscott for Proj4)                                         #
 # Cs325 Project 3                                                                   #
-# extract_comments.py                                                                   #
+# extract_comments.py                                                               #
 # This file simply takes the filepath of the raw HTML file                          #
 # and outputs a list of the comments form the post. This function opens the file,   #
 # parses through the file with BeautifulSoup looking for a class id associated with #
