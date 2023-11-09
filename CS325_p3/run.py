@@ -1,6 +1,6 @@
 
 #####################################################################################
-# Alex Wernex                                                                       #
+# Alex Wernex (and Zach Linscott for Proj 4)                                        #
 # Cs325 Project 3                                                                   #
 # run.py                                                                            #
 # This is the driver for the project.                                               #
@@ -20,7 +20,8 @@ import os
 import argparse
 from module_1.HTMLDownload import save_raw_file
 from module_2.extract_comments import extract_comments
-from module_3.write_comments import output_comments 
+from module_3.write_comments import *
+from module_4.comment_polarity import comment_sentiment
 
 
 rawFileName = 'HTMLOutput.txt'
@@ -46,4 +47,14 @@ comments = extract_comments(rawFileName)
 print("Comments extracted!")
 output_comments(comments, processedFileName)
 print("Comments saved to file!")
+
+# grab processed/cleaned comments from comments.txt
+comment_lst: [] = extract_cleaned_comments(processedFileName)
+
+# analyze comment sentiments individually and store them in a list
+sentiments = [comment_sentiment(comment) for comment in comment_lst]
+
+# fist argument is the file name
+sentiments_file_write('sentiments', comment_lst, sentiments)
+
 
