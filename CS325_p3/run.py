@@ -26,12 +26,15 @@ from module_4.comment_polarity import comment_sentiment
 
 rawFileName = 'HTMLOutput.txt'
 processedFileName = 'comments.txt'
+sentimentFileName = 'sentiments.txt'
 
 absolute_path = os.path.dirname(__file__)
 relative_raw_path = "Data/raw/" + rawFileName
 relative_processed_path = "Data/processed/" + processedFileName
+relative_sentiment_path = "Data/Sentiments/" + sentimentFileName
 rawFileName = os.path.join(absolute_path, relative_raw_path)
 processedFileName = os.path.join(absolute_path, relative_processed_path)
+sentimentFileName = os.path.join(absolute_path, relative_sentiment_path)
 
 parser = argparse.ArgumentParser()
 parser.add_argument(help="URL to download", dest="url", type=str)
@@ -55,6 +58,6 @@ comment_lst: [] = extract_cleaned_comments(processedFileName)
 sentiments = [comment_sentiment(comment) for comment in comment_lst]
 
 # fist argument is the file name
-sentiments_file_write('sentiments', comment_lst, sentiments)
+sentiments_file_write(sentimentFileName, comment_lst, sentiments)
 
 
