@@ -39,5 +39,6 @@ def extract_cleaned_comments(file_name: str) -> []:
 def sentiments_file_write(file_name: str, comments: [], comment_sentiments: []):
     with open(file_name, 'w', encoding='utf-8') as f:
         for i in range(len(comments)):
-            f.write("Comment: {}\n".format(comments[i]) +
-                    "Sentiment: {}\n\n".format(comment_sentiments[i]))
+            comments[i] = comments[i].replace(",", "")
+            f.write("{},".format(comments[i]) +
+                    "{}\n".format(comment_sentiments[i]))
