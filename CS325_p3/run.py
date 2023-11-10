@@ -45,19 +45,22 @@ url = arg.url
 print("Running...")
 
 save_raw_file(url, rawFileName)
-print("HTML raw file saved!")
+print("HTML raw data saved to file {}!".format(rawFileName))
 comments = extract_comments(rawFileName)
 print("Comments extracted!")
 output_comments(comments, processedFileName)
-print("Comments saved to file!")
+print("Comments saved to file {}!".format(processedFileName))
 
 # grab processed/cleaned comments from comments.txt
 comment_lst: [] = extract_cleaned_comments(processedFileName)
 
 # analyze comment sentiments individually and store them in a list
+print("Analyzing the sentiment of each comment...")
 sentiments = [comment_sentiment(comment) for comment in comment_lst]
 
 # fist argument is the file name
+print("Comments and the sentiment of each comment saved in CSV format in {}!".format(sentimentFileName))
 sentiments_file_write(sentimentFileName, comment_lst, sentiments)
+
 
 
