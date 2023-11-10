@@ -11,6 +11,10 @@
 # Added by Zach:                                                                    #
 # extract_cleaned_comments(): simply reads the comments from a file and puts them   #
 # in a list.                                                                        #
+#                                                                                   #
+# sentiments_file_write(): takes a file name, a list of reddit comments,            #
+# and a list of the comments' sentiments, writing them to the file                  #
+# with the given name in CSV format.                                                #
 #####################################################################################
 
 
@@ -35,7 +39,7 @@ def extract_cleaned_comments(file_name: str) -> []:
     return lst
 
 
-# writes the comment and sentiment of the comment to a new file.
+# writes the comments and sentiment of the comments to a new file.
 def sentiments_file_write(file_name: str, comments: [], comment_sentiments: []):
     with open(file_name, 'w', encoding='utf-8') as f:
         for i in range(len(comments)):

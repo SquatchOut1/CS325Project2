@@ -1,7 +1,7 @@
 
 #####################################################################################
-# Alex Wernex (and Zach Linscott for Proj 4)                                        #
-# Cs325 Project 3                                                                   #
+# Alex Wernex and Zach Linscott for Proj 4                                          #
+# Cs325 Project 4                                                                   #
 # run.py                                                                            #
 # This is the driver for the project.                                               #
 # It runs in the terminal with the url                                              #
