@@ -18,6 +18,7 @@
 
 import os
 import argparse
+from module_1.arg_parsing import arg_grabber
 from module_1.HTMLDownload import save_raw_file
 from module_2.extract_comments import extract_comments
 from module_3.write_comments import *
@@ -36,16 +37,21 @@ rawFileName = os.path.join(absolute_path, relative_raw_path)
 processedFileName = os.path.join(absolute_path, relative_processed_path)
 sentimentFileName = os.path.join(absolute_path, relative_sentiment_path)
 
-parser = argparse.ArgumentParser()
-parser.add_argument(help="URL to download", dest="url", type=str)
+# points to file in need of reading
+file_arg = arg_grabber()
+with open(file_arg) as file:
+    urls = [url.rstrip() for url in file]
 
-arg = parser.parse_args()
-url = arg.url
 
 print("Running...")
 
-save_raw_file(url, rawFileName)
-print("HTML raw data saved to file {}!".format(rawFileName))
+# save multiple raw files
+# i = 1
+# for url in urls:
+#     save_raw_file(url, rawFileName + str(i))
+#     print("HTML raw data saved to file {}!".format(rawFileName))
+#     i += 1
+
 comments = extract_comments(rawFileName)
 print("Comments extracted!")
 output_comments(comments, processedFileName)

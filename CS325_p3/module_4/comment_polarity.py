@@ -13,6 +13,7 @@ Purpose:
         if the polarity is 0, the sentiment is neutral.
 '''
 
+
 def comment_sentiment(comment) -> str:
     blob = TextBlob(comment)
     p = blob.sentiment.polarity
