@@ -17,25 +17,11 @@
 
 
 import os
-import argparse
 from module_1.arg_parsing import arg_grabber
 from module_1.HTMLDownload import save_raw_file
-from module_2.extract_comments import extract_comments
+from module_2.extract_comments import *
 from module_3.write_comments import *
 from module_4.comment_polarity import comment_sentiment
-
-
-rawFileName = 'HTMLOutput.txt'
-processedFileName = 'comments.txt'
-sentimentFileName = 'sentiments.txt'
-
-absolute_path = os.path.dirname(__file__)
-relative_raw_path = "Data/raw/" + rawFileName
-relative_processed_path = "Data/processed/" + processedFileName
-relative_sentiment_path = "Data/Sentiments/" + sentimentFileName
-rawFileName = os.path.join(absolute_path, relative_raw_path)
-processedFileName = os.path.join(absolute_path, relative_processed_path)
-sentimentFileName = os.path.join(absolute_path, relative_sentiment_path)
 
 # points to file in need of reading
 file_arg = arg_grabber()
@@ -43,30 +29,43 @@ with open(file_arg) as file:
     urls = [url.rstrip() for url in file]
 
 
+
 print("Running...")
+absolute_path = os.path.dirname(__file__)
+counter = 1
+for url in urls:
 
-# save multiple raw files
-# i = 1
-# for url in urls:
-#     save_raw_file(url, rawFileName + str(i))
-#     print("HTML raw data saved to file {}!".format(rawFileName))
-#     i += 1
+    rawFileName = 'HTMLOutput' + str(counter) + '.txt'
+    relative_raw_path = "Data/raw/" + rawFileName
+    rawFileName = os.path.join(absolute_path, relative_raw_path)
+    processedFileName = 'comments' + str(counter) + '.txt'
+    relative_processed_path = "Data/processed/" + processedFileName
+    processedFileName = os.path.join(absolute_path, relative_processed_path)
+    sentimentFileName = 'sentiments' + str(counter) + '.txt'
+    relative_sentiment_path = "Data/Sentiments/" + sentimentFileName
+    sentimentFileName = os.path.join(absolute_path, relative_sentiment_path)
 
-comments = extract_comments(rawFileName)
-print("Comments extracted!")
-output_comments(comments, processedFileName)
-print("Comments saved to file {}!".format(processedFileName))
+    save_raw_file(url, rawFileName)
+    print("HTML raw data saved to file {}!".format(rawFileName))
 
-# grab processed/cleaned comments from comments.txt
-comment_lst: [] = extract_cleaned_comments(processedFileName)
+    comments = extract_comments(rawFileName)
 
-# analyze comment sentiments individually and store them in a list
-print("Analyzing the sentiment of each comment...")
-sentiments = [comment_sentiment(comment) for comment in comment_lst]
+    print("Comments extracted!")
+    output_comments(comments, processedFileName)
+    print("Comments saved to file {}!".format(processedFileName))
 
-# fist argument is the file name
-print("Comments and the sentiment of each comment saved in CSV format in {}!".format(sentimentFileName))
-sentiments_file_write(sentimentFileName, comment_lst, sentiments)
+    # grab processed/cleaned comments from comments.txt
+    comment_lst: [] = extract_cleaned_comments(processedFileName)
 
+    # analyze comment sentiments individually and store them in a list
+    print("Analyzing the sentiment of each comment...")
+    sentiments = [comment_sentiment(comment) for comment in comment_lst]
 
+    # fist argument is the file name
+    print("Comments and the sentiment of each comment saved in CSV format in {}!".format(sentimentFileName))
+    sentiments_file_write(sentimentFileName, comment_lst, sentiments)
+    print("\n")
+    counter += 1
+
+print("Done!")
 
