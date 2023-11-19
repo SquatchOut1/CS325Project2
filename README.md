@@ -1,25 +1,27 @@
-# Project 4 created by Alex Wernex and Zachery Linscott
-This is a program to download the HTML page of a URL to a txt file as well as save the comments of a reddit post to a txt.
+# Project 5 created by Alex Wernex and Zachery Linscott
+This is a program to download the HTML pages of multiple URLs pointing to Reddit posts.
+Each URL is read from a file that the user of the program provides a path to.
 
-Afterwards, the comments of the reddit post are passed through a sentiment analysis NLP algorithm to determine if the comments
-have a positive, negative, or neutral sentiment. 
+The raw HTML of each URL is then put into separate files, then from there each file
+is cleaned of the HTML to extract the comments from the subreddit.
 
-The comments and the sentiment of each comment are then stored in sentiments.txt 
-in CSV format.
+Once each file is cleaned, these comments are then stored cleanly into yet more files 
+which are unique to each Reddit post.
+
+Lastly, the comments files are scanned and sentiment analysis is performed on each comment.
+Once the sentiments are gathered, they are also put into their own files, again unique for each
+Reddit post.
 
 ## How to Use
 
-Before you run the program, you may optionally change the names of the raw and processed output file. In run.py change:
-```python
-    rawFileName = 'HTMLOutput.txt'
-    processedFileName = 'comments.txt'
-```
+1. Ensure you are in the correct directory.
 
-Additionally, make sure to download the environment from requirements.yaml to make sure you have the appropriate libraries.
+2. Make sure to download the environment from requirements.yaml to make sure you have the appropriate libraries.
 
-For this program, run in the terminal using python passing the reddit URL you wish to download as an argument ex: `python run.py https://old.reddit.com/r/mtg/comments/16msc6b/finished_a_game_at_130000_and_still_won_it/`
+3. Run in the terminal using python passing the file of urls you wish to gather comments from
+4. as an argument, e.g.: `python run.py yourfilepath/yourfilename`
 
-Also, make sure you ran the run.py with the old.reddit link. Otherwise the comments will not be in the file and it won't work.
+Also, make sure you ran the run.py with the old.reddit link for each one. Otherwise the comments will not be in the file and it won't work.
 
 For the TA: There is no API key to download or API to worry about. We did not use OpenAI or Bard due to a myriad of issues,
 including the slowness of API calls. We used the textblob library for this project which is far more lightweight.
@@ -27,5 +29,5 @@ I reached out to the professor and he said this is ok.
 
 ## Sample Output
 
-The attached CS325_p3/Data/raw/HTMLOutput.txt, CS325_p3/Data/processed/comments.txt, and  CS325_p3/Data/sentiments/sentiments.txt 
-are all sample outputs using the url https://old.reddit.com/r/mildlyinfuriating/comments/17qr1qf/this_picture_sums_up_living_with_my_girlfriend/
+The attached CS325_p3/Data/raw/HTMLOutput files, CS325_p3/Data/processed/comments files, and  CS325_p3/Data/sentiments/sentiments files 
+are all sample outputs.
