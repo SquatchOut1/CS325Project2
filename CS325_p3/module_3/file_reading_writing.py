@@ -2,7 +2,7 @@
 #####################################################################################
 # Alex Wernex (and Zach Linscott for Proj4)                                         #
 # Cs325 Project 3                                                                   #
-# write_comments.py                                                                 #
+# file_reading_writing.py                                                                 #
 # This file simply takes a list of the comments and the filepath of the output file #
 # and outputs said file. This function opens the file, then goes throught the list  #
 # comment by comment. It then alternates writting the comment and a line separator  #
@@ -32,7 +32,7 @@ def output_comments(data, toFile):
 
 
 # reads  the processed comments from comments.txt and returns them in a list
-def extract_cleaned_comments(file_name: str) -> []:
+def extract_file_lines(file_name: str) -> []:
     with open(file_name, 'r', encoding='utf-8') as f:
         lst = [line.strip() for line in f]
 

@@ -20,7 +20,7 @@ import os
 from module_1.arg_parsing import arg_grabber
 from module_1.HTMLDownload import save_raw_file
 from module_2.extract_comments import *
-from module_3.write_comments import *
+from module_3.file_reading_writing import *
 from module_4.comment_polarity import comment_sentiment
 
 # points to file in need of reading
@@ -55,7 +55,7 @@ for url in urls:
     print("Comments saved to file {}!".format(processedFileName))
 
     # grab processed/cleaned comments from comments.txt
-    comment_lst: [] = extract_cleaned_comments(processedFileName)
+    comment_lst: [] = extract_file_lines(processedFileName)
 
     # analyze comment sentiments individually and store them in a list
     print("Analyzing the sentiment of each comment...")
@@ -65,6 +65,8 @@ for url in urls:
     print("Comments and the sentiment of each comment saved in CSV format in {}!".format(sentimentFileName))
     sentiments_file_write(sentimentFileName, comment_lst, sentiments)
     print("\n")
+
+    
     counter += 1
 
 print("Done!")

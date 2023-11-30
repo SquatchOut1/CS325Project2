@@ -1,6 +1,17 @@
 import argparse
 from pathlib import Path
 
+'''
+Authors: Zachery Linscott and Alex Wernex
+Class: CS 325
+Purpose:
+    arg_grabber(): 
+        Receives is the user's command line argument,
+         expecting a filepath, and returns the path.
+    valid_file():
+        Takes the command line arg the user inputs andensures it's a valid file path.
+'''
+
 
 def valid_file(arg):
     try:
