@@ -13,6 +13,8 @@ neutral
 neutral
 neutral
 neutral
+neutral
+neutral
 negative
 negative
 neutral
@@ -24,7 +26,6 @@ neutral
 neutral
 neutral
 neutral
-neutral
 negative
 neutral
 neutral
@@ -34,11 +35,6 @@ negative
 negative
 positive
 neutral
-neutral
-neutral
-neutral
-neutral
-positive
 neutral
 neutral
 neutral
@@ -64,5 +60,4 @@ neutral
 positive
 neutral
 positive
-neutral
 neutral

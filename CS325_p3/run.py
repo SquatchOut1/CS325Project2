@@ -1,4 +1,3 @@
-
 #####################################################################################
 # Alex Wernex and Zach Linscott for Proj 4                                          #
 # Cs325 Project 4                                                                   #
@@ -14,27 +13,23 @@
 #####################################################################################
 
 
-
-
 import os
 from module_1.arg_parsing import arg_grabber
 from module_1.HTMLDownload import save_raw_file
 from module_2.extract_comments import *
 from module_3.file_reading_writing import *
 from module_4.comment_polarity import comment_sentiment
+from module_4.sentiment_graphing import csv_to_df
 
 # points to file in need of reading
 file_arg = arg_grabber()
 with open(file_arg) as file:
     urls = [url.rstrip() for url in file]
 
-
-
 print("Running...")
 absolute_path = os.path.dirname(__file__)
 counter = 1
 for url in urls:
-
     rawFileName = 'HTMLOutput' + str(counter) + '.txt'
     relative_raw_path = "Data/raw/" + rawFileName
     rawFileName = os.path.join(absolute_path, relative_raw_path)
@@ -66,8 +61,10 @@ for url in urls:
     sentiments_file_write(sentimentFileName, comment_lst, sentiments)
     print("\n")
 
-    
+    # read sentiment file and convert to df
+    # would be faster to just read from the sentiments list but whatever.
+    csv_to_df(sentimentFileName)
+
     counter += 1
 
 print("Done!")
-
