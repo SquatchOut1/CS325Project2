@@ -65,7 +65,7 @@ for url in urls:
 
     # read sentiment file and convert to df
     # would be faster to just read from the sentiments list but whatever.
-    sentiments_df = csv_to_df(sentimentFileName)
+    sentiments_df = csv_to_df(sentimentFileName, n_lines := 50)
     plot_sentiments(sentiments_df, sentimentFileName, fig_num=counter)
     counter += 1
 
