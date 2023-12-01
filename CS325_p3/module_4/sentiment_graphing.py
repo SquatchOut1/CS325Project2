@@ -1,5 +1,4 @@
-from pandas import read_csv
-from pandas import DataFrame
+from pandas import read_csv, DataFrame
 import matplotlib.pyplot as plt
 from random import choice
 
