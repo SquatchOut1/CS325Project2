@@ -39,7 +39,7 @@ for url in urls:
     relative_processed_path = "Data/processed/" + processedFileName
     processedFileName = os.path.join(absolute_path, relative_processed_path)
     sentimentFileName = 'sentiments' + str(counter) + '.txt'
-    relative_sentiment_path = "Data/Sentiments/" + sentimentFileName
+    relative_sentiment_path = "Data/sentiments/" + sentimentFileName
     sentimentFileName = os.path.join(absolute_path, relative_sentiment_path)
 
     save_raw_file(url, rawFileName)

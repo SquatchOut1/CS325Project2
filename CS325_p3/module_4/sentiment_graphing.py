@@ -15,6 +15,6 @@ def plot_sentiments(df: DataFrame, file_name, fig_num) -> None:
     plt.bar(df['sentiments'], df['sentiment_count'], color=choice(colors))
     plt.xlabel(list(df)[0])
     plt.ylabel('Quantity of Sentiment')
-    plt.title("{} Sentiments".format(file_name))
+    plt.title("{} sentiments".format(file_name))
     plt.figure(fig_num)
 
