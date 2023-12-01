@@ -30,6 +30,8 @@ with open(file_arg) as file:
 print("Running...")
 absolute_path = os.path.dirname(__file__)
 counter = 1
+
+sentiments_df_lst = []
 for url in urls:
     rawFileName = 'HTMLOutput' + str(counter) + '.txt'
     relative_raw_path = "Data/raw/" + rawFileName
@@ -65,8 +67,10 @@ for url in urls:
     # read sentiment file and convert to df
     # would be faster to just read from the sentiments list but whatever.
     sentiments_df = csv_to_df(sentimentFileName)
-    plot_sentiments(sentiments_df, sentimentFileName)
-
+    plot_sentiments(sentiments_df, sentimentFileName, fig_num=counter)
     counter += 1
 
+# noice
+plt.show()
 print("Done!")
+
