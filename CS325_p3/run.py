@@ -19,7 +19,8 @@ from module_1.HTMLDownload import save_raw_file
 from module_2.extract_comments import *
 from module_3.file_reading_writing import *
 from module_4.comment_polarity import comment_sentiment
-from module_4.sentiment_graphing import csv_to_df
+from module_4.sentiment_graphing import *
+
 
 # points to file in need of reading
 file_arg = arg_grabber()
@@ -63,7 +64,8 @@ for url in urls:
 
     # read sentiment file and convert to df
     # would be faster to just read from the sentiments list but whatever.
-    csv_to_df(sentimentFileName)
+    sentiments_df = csv_to_df(sentimentFileName)
+    plot_sentiments(sentiments_df, sentimentFileName)
 
     counter += 1
 
