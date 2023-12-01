@@ -29,9 +29,8 @@ with open(file_arg) as file:
 
 print("Running...")
 absolute_path = os.path.dirname(__file__)
-counter = 1
 
-sentiments_df_lst = []
+counter = 1
 for url in urls:
     rawFileName = 'HTMLOutput' + str(counter) + '.txt'
     relative_raw_path = "Data/raw/" + rawFileName
