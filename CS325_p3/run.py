@@ -30,8 +30,13 @@ with open(file_arg) as file:
 print("Running...")
 absolute_path = os.path.dirname(__file__)
 
+# # make matplotlib interactive, stops terminal from hanging
+# plt.interactive(True)
+
 counter = 1
 for url in urls:
+
+    # file naming for each url
     rawFileName = 'HTMLOutput' + str(counter) + '.txt'
     relative_raw_path = "Data/raw/" + rawFileName
     rawFileName = os.path.join(absolute_path, relative_raw_path)
@@ -42,12 +47,15 @@ for url in urls:
     relative_sentiment_path = "Data/sentiments/" + sentimentFileName
     sentimentFileName = os.path.join(absolute_path, relative_sentiment_path)
 
+    # save the raw data to a file
     save_raw_file(url, rawFileName)
     print("HTML raw data saved to file {}!".format(rawFileName))
 
+    # extract cleaned comments from raw data
     comments = extract_comments(rawFileName)
-
     print("Comments extracted!")
+
+    # save the comments to a file
     output_comments(comments, processedFileName)
     print("Comments saved to file {}!".format(processedFileName))
 
@@ -61,7 +69,6 @@ for url in urls:
     # fist argument is the file name
     print("Comments and the sentiment of each comment saved in CSV format in {}!".format(sentimentFileName))
     sentiments_file_write(sentimentFileName, comment_lst, sentiments)
-    print("\n")
 
     # read sentiment file and convert to df
     # would be faster to just read from the sentiments list but whatever.
@@ -69,7 +76,6 @@ for url in urls:
     plot_sentiments(sentiments_df, sentimentFileName, fig_num=counter)
     counter += 1
 
-# noice
 plt.show()
 print("Done!")
 
