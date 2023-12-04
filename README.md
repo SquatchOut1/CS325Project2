@@ -24,6 +24,8 @@ the plots folder as well, located in Data.
 
 3. Run in the terminal using python passing the file of urls you wish to gather comments from
 4. as an argument, e.g.: `python run.py yourfilepath/yourfilename`
+5. Finally when you are finished viewing the graphs, exit out of all of the windows to end the program.
+Don't worry, all of the graphs will still be in the plots folder as pictures. 
 
 Also, make sure you ran the run.py with the old.reddit link for each one. Otherwise the comments will not be in the file and it won't work.
 
