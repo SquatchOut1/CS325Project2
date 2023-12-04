@@ -19,12 +19,12 @@
 
 
 def output_comments(data, toFile):
-    # pageBreak = f"\n"
+    pageBreak = f"\n"
     outputFile = open(toFile, "w", encoding="utf8")
     counter = 0
     for line in data:
-        outputFile.write(line)
-        # outputFile.write(pageBreak)
+        outputFile.write(line.replace("\n", " "))
+        outputFile.write(pageBreak)
         counter += 1
         if counter == 50:
             break

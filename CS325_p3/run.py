@@ -46,6 +46,12 @@ for url in urls:
     sentimentFileName = 'sentiments' + str(counter) + '.txt'
     relative_sentiment_path = "Data/sentiments/" + sentimentFileName
     sentimentFileName = os.path.join(absolute_path, relative_sentiment_path)
+    graphFileName = "graph" + str(counter) + '.png'
+    relative_graph_path = "Data/Plots/" + graphFileName
+    graphFileName = os.path.join(absolute_path,  relative_graph_path)
+
+    #extracting post title for each url
+    postTitle = url.split("/")[-2].replace("_", " ")
 
     # save the raw data to a file
     save_raw_file(url, rawFileName)
@@ -73,7 +79,7 @@ for url in urls:
     # read sentiment file and convert to df
     # would be faster to just read from the sentiments list but whatever.
     sentiments_df = csv_to_df(sentimentFileName, n_lines := 50)
-    plot_sentiments(sentiments_df, sentimentFileName, fig_num=counter)
+    plot_sentiments(sentiments_df, postTitle, fig_num=counter, saveLoc=graphFileName)
     counter += 1
 
 plt.show()

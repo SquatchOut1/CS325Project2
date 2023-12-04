@@ -23,11 +23,3 @@ def extract_comments(filename):
         for comment in comments:
             output.append(comment.text)
     return output
-def extract_title(filename):
-    htmlFile = open(filename, encoding='utf8')
-    html = BeautifulSoup(htmlFile, 'html.parser')
-
-    commentHtml = html.find(class_ = "top-matter")
-    commentHtml = commentHtml.find(class_ = "title")
-    commentHtml = commentHtml.find('a')
-    return commentHtml.text
