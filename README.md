@@ -1,4 +1,4 @@
-# Project 5 created by Alex Wernex and Zachery Linscott
+# Project 6 created by Alex Wernex and Zachery Linscott
 This is a program to download the HTML pages of multiple URLs pointing to Reddit posts.
 Each URL is read from a file that the user of the program provides a path to.
 
@@ -8,9 +8,13 @@ is cleaned of the HTML to extract the comments from the subreddit.
 Once each file is cleaned, these comments are then stored cleanly into yet more files 
 which are unique to each Reddit post.
 
-Lastly, the comments files are scanned and sentiment analysis is performed on each comment.
+Next, the comments files are scanned and sentiment analysis is performed on each comment.
 Once the sentiments are gathered, they are also put into their own files, again unique for each
 Reddit post.
+
+Finally, each sentiment file is then put into its own bar graph where the user can visually see
+the number of positive, negative, and neutral comments. These graphs appear and are stored in 
+the plots folder as well, located in Data.
 
 ## How to Use
 
@@ -29,5 +33,5 @@ I reached out to the professor and he said this is ok.
 
 ## Sample Output
 
-The attached CS325_p3/Data/raw/HTMLOutput files, CS325_p3/Data/processed/comments files, and  CS325_p3/Data/sentiments/sentiments files 
+The attached CS325_p3/Data/raw/HTMLOutput files, CS325_p3/Data/processed/comments files, CS325_p3/Data/sentiments/sentiments, and CS325_p3/Data/Plots/graphs files 
 are all sample outputs.
